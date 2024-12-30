@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { post } from "../services/api";
 import { v4 as uuidv4 } from "uuid";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 function CreateOrder() {
@@ -10,6 +12,8 @@ function CreateOrder() {
         products: [],  
         client: "",
     });
+
+    const navigate = useNavigate();
 
     const [productInput, setProductInput] = useState("");
 
@@ -89,6 +93,7 @@ function CreateOrder() {
 
                 <button type="submit">Créer</button>
             </form>
+            <div><Link to={"/"} className="Liste">Liste des commandes</Link></div>
         </div>
     );
 }
